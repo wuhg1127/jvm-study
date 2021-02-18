@@ -28,7 +28,7 @@ public class AllotOnStack {
 
             // users.add(doEscapeAnalysis()); // 该对象属于逃逸对象，不管开不开器逃逸分析和标量替换，都会在堆上进行分配，所以必然会产生大量gc
 
-            doEscapeAnalysis(); // 无返回值，随着栈帧释放，对象被释放，属于非逃逸对象，默认开启逃逸分析和标量替换的情况下不太可能会产生fullGC
+            doEscapeAnalysis(); // 有返回值，但是没有引用返回值，随着栈帧释放，对象被释放，属于非逃逸对象，默认开启逃逸分析和标量替换的情况下不太可能会产生fullGC
             /*
             执行结果：
             第一种：执行unDoEscapeAnalysis方法时，由于开启了逃逸分析和标量替换，没有产生大量GC，只产生了一次
